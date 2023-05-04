@@ -12,20 +12,17 @@ with open(budget_csv, 'r') as csvfile:
 
 with open(budget_csv, 'r') as csvfile:
     csvreader = csv.DictReader(csvfile, delimiter=',')
-   #
-   #  Dates = []
-   # increase = []
-   # if increase == (max(totals))
-  #  print (increase)
+    Dates = []
+    
 
 
 print ("Financial Analysis")
 print ("-------------------------------")
 print ("Total Months: {}".format(row_count))
 print ("Total: ${}".format(sum(totals)))
-print ("Average Change: ${}".format(sum(totals)/row_count))
-print ("Greatest Increase in Profits: (${})".format(max(totals)))
-print ("Greatest Decrease in Profits: (${})".format(min(totals)))
+print ("Average Change: ${}".format((totals)))
+print ("Greatest Increase in Profits: ${}".format(max(totals)))
+print ("Greatest Decrease in Profits: ${}".format(min(totals)))
 
 
 
@@ -36,7 +33,3 @@ with open(output_file, "w") as text_file:
     text_file.write ("Financial Analysis\n")
     text_file.write ("-------------------------------\n")
     text_file.write ("Total Months: {}\n".format(row_count))
-    text_file.write ("Total: ${}\n".format(sum(totals)))
-    text_file.write ("Average Change: ${}\n".format((totals)))
-    text_file.write ("Greatest Increase in Profits: (${})\n".format(max(totals)))
-    text_file.write ("Greatest Decrease in Profits: (${})\n".format(min(totals)))

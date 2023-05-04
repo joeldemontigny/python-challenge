@@ -1,32 +1,42 @@
 import os
 import csv
-title = "Financial Analysis"
-spacer = "---------------------------------"
-csvpath = os.path.join(".","Resources", "budget_data.csv")
-with open(csvpath) as csvfile:
-    csvreader = csv.reader(csvfile, delimiter =',')
 
-    header=next(csvreader)
-    months =[]
-    for row in csvreader:
-        if row[0] not in months:
-            months.append(row[0])
+budget_csv = os.path.join(".","Resources", "budget_data.csv")
 
-    sum = 0
-   
-    print (title) 
-    print (spacer)   
-    print("Total Months:", len(months))
-    #print("Total:", sum(totalprofit))
-    #print("Average Change:", mean(change))
-    #print("Greatest Increase in Profit:", max(increase))
-    #print("Greatest Decrease in Profit:", min(decrease))
+with open(budget_csv, 'r') as csvfile:
+    csvreader = csv.DictReader(csvfile, delimiter=",")
+    totals = []
+    for row_count, row in enumerate(csvreader, start=1):
+        value = int(row['Profit/Losses'])
+        totals.append(value)
+
+with open(budget_csv, 'r') as csvfile:
+    csvreader = csv.DictReader(csvfile, delimiter=',')
+   #
+   #  Dates = []
+   # increase = []
+   # if increase == (max(totals))
+  #  print (increase)
 
 
-# Need to skip the header
+print ("Financial Analysis")
+print ("-------------------------------")
+print ("Total Months: {}".format(row_count))
+print ("Total: ${}".format(sum(totals)))
+print ("Average Change: ${}".format((totals)))
+print ("Greatest Increase in Profits: (${})".format(max(totals)))
+print ("Greatest Decrease in Profits: (${})".format(min(totals)))
 
-#Sum the total number of months
-# months = array value 0 
 
 
-# totalMonths = len(months)
+output_file = os.path.join("Analysis.txt")
+
+#  Open the output file
+with open(output_file, "w") as text_file:
+    text_file.write ("Financial Analysis\n")
+    text_file.write ("-------------------------------\n")
+    text_file.write ("Total Months: {}\n".format(row_count))
+    text_file.write ("Total: ${}\n".format(sum(totals)))
+    text_file.write ("Average Change: ${}\n".format((totals)))
+    text_file.write ("Greatest Increase in Profits: (${})\n".format(max(totals)))
+    text_file.write ("Greatest Decrease in Profits: (${})\n".format(min(totals)))

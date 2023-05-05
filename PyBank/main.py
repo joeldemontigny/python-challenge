@@ -47,4 +47,4 @@ with open(output_file, "w") as text_file:
     text_file.write ("Total: {}\n".format(row_count))
     text_file.write ("Average Change: ${}\n".format((averageChanges)))
     text_file.write (f'Greatest Increase in Profits: {maxMonth} (${Max})\n')
-    text_file.write (f"Greatest Decrease in Profits: {minMonth} (${Min})\n")
+    text_file.write (f"Greatest Decrease in Profits: {minMonth} (${Min})")

@@ -6,24 +6,35 @@ budget_csv = os.path.join(".","Resources", "budget_data.csv")
 with open(budget_csv, 'r') as csvfile:
     csvreader = csv.DictReader(csvfile, delimiter=",")
     totals = []
+    changes=[]
+    change=0
+    months=[]
     for row_count, row in enumerate(csvreader, start=1):
         value = int(row['Profit/Losses'])
         totals.append(value)
+        changes.append(value-change)
+        months.append(row['Date'])
+        change= value
 
-with open(budget_csv, 'r') as csvfile:
-    csvreader = csv.DictReader(csvfile, delimiter=',')
-    Dates = []
-    
+   
 
+Max= (max(changes))
+maxIndex =changes.index(Max)
+maxMonth=months[maxIndex]
+
+Min= (min(changes))
+minIndex =changes.index(Min)
+minMonth=months[minIndex]
+
+averageChanges= sum(changes)/len(changes)
 
 print ("Financial Analysis")
 print ("-------------------------------")
 print ("Total Months: {}".format(row_count))
 print ("Total: ${}".format(sum(totals)))
-print ("Average Change: ${}".format((totals)))
-print ("Greatest Increase in Profits: ${}".format(max(totals)))
-print ("Greatest Decrease in Profits: ${}".format(min(totals)))
-
+print ("Average Change: ${}".format((averageChanges)))
+print(f'Greatest Increase in Profits: {maxMonth} (${Max})')
+print (f"Greatest Decrease in Profits: {minMonth} (${Min})")
 
 
 output_file = os.path.join("Analysis.txt")

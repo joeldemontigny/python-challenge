@@ -32,7 +32,7 @@ print ("Financial Analysis")
 print ("-------------------------------")
 print ("Total Months: {}".format(row_count))
 print ("Total: ${}".format(sum(totals)))
-print ("Average Change: ${averageChanges}")
+print ("Average Change: $", int(averageChanges))
 print(f'Greatest Increase in Profits: {maxMonth} (${Max})')
 print (f"Greatest Decrease in Profits: {minMonth} (${Min})")
 

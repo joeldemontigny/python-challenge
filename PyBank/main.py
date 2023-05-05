@@ -26,13 +26,13 @@ Min= (min(changes))
 minIndex =changes.index(Min)
 minMonth=months[minIndex]
 
-averageChanges= sum(changes)/len(changes)
+averageChanges= round(sum(changes[1:])/len(changes[1:]),2)
 
 print ("Financial Analysis")
 print ("-------------------------------")
 print ("Total Months: {}".format(row_count))
 print ("Total: ${}".format(sum(totals)))
-print ("Average Change: $", int(averageChanges))
+print ("Average Change: $",(averageChanges))
 print(f'Greatest Increase in Profits: {maxMonth} (${Max})')
 print (f"Greatest Decrease in Profits: {minMonth} (${Min})")
 
